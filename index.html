@@ -1,223 +1,203 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JIVAI | Medical Safety Companion</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JIVAI | Medical Safety Companion</title>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-hover {
-      transition: all 0.35s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
-    }
-  </style>
+<style>
+body { font-family: 'Plus Jakarta Sans', sans-serif; }
+.reveal { opacity:0; transform:translateY(40px); transition:all .9s ease; }
+.reveal.active { opacity:1; transform:none; }
+.card-hover { transition:.35s ease; }
+.card-hover:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 30px 60px rgba(0,0,0,.5); }
+.pulse { animation:pulse 1.4s infinite; }
+@keyframes pulse { 0%,100%{opacity:.4}50%{opacity:1} }
+.bar { animation:load 2s forwards; }
+@keyframes load { from{width:0} to{width:100%} }
+</style>
 </head>
 
 <body class="bg-slate-950 text-slate-100 overflow-x-hidden">
 
 <!-- NAV -->
 <header class="fixed top-0 w-full bg-slate-950/80 backdrop-blur border-b border-white/5 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="font-extrabold text-xl">JIVAI</div>
-    <nav class="hidden md:flex gap-8 text-sm text-slate-400">
-      <a href="#problem" class="hover:text-blue-400">Problem</a>
-      <a href="#solution" class="hover:text-blue-400">Solution</a>
-      <a href="#demo" class="hover:text-blue-400">Live Demo</a>
-      <a href="#impact" class="hover:text-blue-400">Impact</a>
-    </nav>
-    <!-- <span class="text-xs bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-bold">
-      Imagine Cup Finalist Prototype
-    </span> -->
-  </div>
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="font-extrabold text-xl">JIVAI</div>
+<nav class="hidden md:flex gap-8 text-sm text-slate-400">
+<a href="#problem" class="hover:text-blue-400">Problem</a>
+<a href="#solution" class="hover:text-blue-400">Solution</a>
+<a href="#demo" class="hover:text-blue-400">Demo</a>
+<a href="#impact" class="hover:text-blue-400">Impact</a>
+</nav>
+</div>
 </header>
 
 <!-- HERO -->
-<section class="relative pt-40 pb-28 text-center reveal">
-  <div class="absolute inset-0 -z-10 flex justify-center">
-    <div class="w-[700px] h-[700px] bg-blue-600/20 blur-[160px] rounded-full"></div>
-  </div>
-
-  <h1 class="text-5xl md:text-7xl font-extrabold mb-8">
-    AI that <span class="text-blue-500">protects patients</span><br>
-    from medical harm
-  </h1>
-
-  <p class="max-w-3xl mx-auto text-lg text-slate-400 mb-8">
-    JIVAI is an Azure-powered medical safety assistant that helps people
-    understand prescriptions, verify medicines, and follow care safely —
-    without diagnosing or replacing doctors.
-  </p>
-
-  <div class="flex justify-center gap-6">
-    <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"
-      class="px-8 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-500 hover:scale-[1.04] transition">
-      Try Live Safety Demo
-    </button>
-    <span class="px-6 py-4 text-sm text-slate-400 border border-white/10 rounded-xl">
-      Built on Microsoft Azure • Responsible AI
-    </span>
-  </div>
+<section class="pt-40 pb-28 text-center reveal">
+<div class="absolute inset-0 -z-10 flex justify-center">
+<div class="w-[700px] h-[700px] bg-blue-600/20 blur-[160px] rounded-full"></div>
+</div>
+<h1 class="text-5xl md:text-7xl font-extrabold mb-8">
+AI that <span class="text-blue-500">protects patients</span><br>from medical harm
+</h1>
+<p class="max-w-3xl mx-auto text-lg text-slate-400 mb-10">
+Azure-powered medical safety assistant that improves understanding,
+verification, and follow-ups — without diagnosis.
+</p>
+<button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"
+class="px-10 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-500 transition">
+Try Live Safety Demo
+</button>
 </section>
 
 <!-- PROBLEM -->
 <section id="problem" class="py-24 border-t border-white/5 reveal">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-    <div>
-      <h2 class="text-4xl font-bold mb-6">The Hidden Healthcare Crisis</h2>
-      <p class="text-slate-400 mb-6">
-        Doctors see up to 100 patients a day. Patients leave with prescriptions
-        they cannot read, verify, or safely follow.
-      </p>
-      <ul class="space-y-3 text-slate-300">
-        <li>• Medication misuse</li>
-        <li>• Counterfeit medicines</li>
-        <li>• Missed follow-ups</li>
-      </ul>
-    </div>
-
-    <div class="bg-slate-900 p-10 rounded-3xl border border-white/5 card-hover">
-      <div class="text-5xl font-extrabold text-blue-500">72%</div>
-      <p class="text-sm uppercase tracking-widest text-slate-400">
-        Patients misunderstood prescriptions
-      </p>
-    </div>
-  </div>
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-bold mb-6">The Hidden Healthcare Crisis</h2>
+<p class="text-slate-400 mb-6">
+Patients receive complex prescriptions they cannot read, verify, or follow safely.
+</p>
+<ul class="space-y-3 text-slate-300">
+<li>• Medication misuse</li>
+<li>• Counterfeit medicines</li>
+<li>• Missed follow-ups</li>
+</ul>
+</div>
+<div class="bg-slate-900 p-10 rounded-3xl border border-white/5 card-hover">
+<div class="text-5xl font-extrabold text-blue-500">72%</div>
+<p class="text-sm uppercase tracking-widest text-slate-400">
+Misunderstood prescriptions
+</p>
+</div>
+</div>
 </section>
 
 <!-- SOLUTION -->
 <section id="solution" class="py-24 bg-slate-900/40 reveal">
-  <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-    <h2 class="text-4xl font-bold mb-4">What JIVAI Does — Safely</h2>
-    <p class="text-slate-400 max-w-3xl mx-auto">
-      JIVAI focuses on safety, clarity, and verification — not diagnosis.
-    </p>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-    <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
-      📄 Simplifies prescriptions & reports
-    </div>
-    <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
-      💊 Verifies medicine authenticity & dosage
-    </div>
-    <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
-      🧠 Creates a safe patient memory for doctors
-    </div>
-  </div>
+<div class="max-w-7xl mx-auto px-6 text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">What JIVAI Does — Safely</h2>
+<p class="text-slate-400 max-w-3xl mx-auto">
+Focused on clarity and safety, never diagnosis.
+</p>
+</div>
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+<div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
+📄 Simplifies prescriptions & reports
+</div>
+<div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
+💊 Verifies medicine authenticity
+</div>
+<div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
+🧠 Builds safe patient memory
+</div>
+</div>
 </section>
 
-<!-- LIVE DEMO -->
+<!-- DEMO -->
 <section id="demo" class="py-24 reveal">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">
-      Interactive Medical Safety Demo
-    </h2>
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">
+Interactive Medical Safety Demo
+</h2>
 
-    <div class="grid md:grid-cols-2 gap-10">
-      <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
-        <h3 class="font-bold text-xl mb-4">📄 Upload Prescription</h3>
-        <input type="file" class="mb-6 block w-full text-sm">
-        <button onclick="analyzeReport()" class="w-full bg-blue-600 py-3 rounded-xl font-bold">
-          Analyze Safely
-        </button>
-      </div>
+<div class="grid md:grid-cols-2 gap-10">
+<div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
+<h3 class="font-bold text-xl mb-4">📄 Upload Prescription</h3>
+<input type="file" class="mb-6 block w-full text-sm">
+<button onclick="analyzeReport()" class="w-full bg-blue-600 py-3 rounded-xl font-bold">
+Analyze Safely
+</button>
+</div>
 
-      <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
-        <h3 class="font-bold text-xl mb-4">💊 Scan Medicine</h3>
-        <input type="file" class="mb-6 block w-full text-sm">
-        <button onclick="scanMedicine()" class="w-full bg-blue-600 py-3 rounded-xl font-bold">
-          Verify Medicine
-        </button>
-      </div>
-    </div>
+<div class="bg-slate-900 p-8 rounded-3xl border border-white/5 card-hover">
+<h3 class="font-bold text-xl mb-4">💊 Scan Medicine</h3>
+<input type="file" class="mb-6 block w-full text-sm">
+<button onclick="scanMedicine()" class="w-full bg-blue-600 py-3 rounded-xl font-bold">
+Verify Medicine
+</button>
+</div>
+</div>
 
-    <div id="output" class="hidden mt-16 bg-slate-950 border border-white/10 rounded-3xl p-10">
-      <h3 class="text-2xl font-bold mb-4">🛡️ Safety Summary</h3>
-      <div id="riskBadge" class="inline-block px-4 py-2 rounded-full text-sm font-bold mb-6"></div>
-      <p id="explanation" class="text-slate-300 mb-6"></p>
-      <button onclick="playVoice()" class="px-6 py-3 bg-white/10 rounded-xl">
-        🔊 Listen
-      </button>
-      <p class="mt-6 text-xs text-slate-500">
-        ⚠️ No diagnosis or treatment decisions are provided.
-      </p>
-    </div>
-  </div>
+<!-- OUTPUT -->
+<div id="output" class="hidden mt-16 bg-slate-950 border border-white/10 rounded-3xl p-10">
+<h3 class="text-2xl font-bold mb-4">🛡️ Safety Summary</h3>
+
+<div class="w-full bg-white/5 h-2 rounded-full mb-6 overflow-hidden">
+<div class="h-2 bg-blue-500 bar"></div>
+</div>
+
+<div id="riskBadge" class="inline-block px-4 py-2 rounded-full font-bold mb-4"></div>
+<p id="explanation" class="text-slate-300 mb-6"></p>
+
+<button onclick="playVoice()" class="px-6 py-3 bg-white/10 rounded-xl mb-6">
+🔊 Listen
+</button>
+
+<!-- CHATBOT -->
+<div id="chatbot" class="mt-10">
+<h4 class="font-bold mb-4">🤖 Ask JIVAI (Safety Only)</h4>
+<div id="chatLog" class="bg-slate-900 p-4 rounded-xl h-40 overflow-y-auto text-sm mb-4"></div>
+<input id="chatInput" placeholder="Ask about timing, safety, precautions…"
+class="w-full p-3 rounded-xl bg-slate-800 border border-white/10 text-sm"
+onkeydown="if(event.key==='Enter')sendChat()">
+</div>
+
+<p class="mt-6 text-xs text-slate-500">
+⚠️ No diagnosis or treatment decisions provided.
+</p>
+</div>
+</div>
 </section>
 
 <!-- IMPACT -->
 <section id="impact" class="py-24 reveal">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
-    <div>
-      <div class="text-4xl font-extrabold text-blue-500">68%</div>
-      Improved understanding
-    </div>
-    <div>
-      <div class="text-4xl font-extrabold text-blue-500">41%</div>
-      Reduced misuse
-    </div>
-    <div>
-      <div class="text-4xl font-extrabold text-blue-500">0</div>
-      Diagnoses given
-    </div>
-  </div>
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
+<div><div class="text-4xl font-extrabold text-blue-500">68%</div>Better understanding</div>
+<div><div class="text-4xl font-extrabold text-blue-500">41%</div>Reduced misuse</div>
+<div><div class="text-4xl font-extrabold text-blue-500">0</div>Diagnoses</div>
+</div>
 </section>
 
 <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
-  Built to protect patients. Powered by Azure. Designed responsibly.
+Built responsibly on Microsoft Azure • Imagine Cup Ready
 </footer>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(e =>
-    e.forEach(x => x.isIntersecting && x.target.classList.add('active')),
-    { threshold: 0.15 }
-  );
-  reveals.forEach(el => observer.observe(el));
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('active')),{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
 
-  function analyzeReport() {
-    show("Caution", "bg-yellow-500/20 text-yellow-400",
-      "Strict timing required. No dangerous interactions detected.");
-  }
-
-  function scanMedicine() {
-    show("Urgent Review", "bg-red-500/20 text-red-400",
-      "Dosage mismatch detected. Please verify with a professional.");
-  }
-
-  function show(level, cls, text) {
-    output.classList.remove('hidden');
-    riskBadge.className = `px-4 py-2 rounded-full font-bold ${cls}`;
-    riskBadge.innerText = level;
-    explanation.innerText = text;
-  }
-
-  function playVoice() {
-    speechSynthesis.speak(
-      new SpeechSynthesisUtterance("Please consult your doctor if unsure.")
-    );
-  }
+function analyzeReport(){
+show("Caution","bg-yellow-500/20 text-yellow-400",
+"Timing sensitive medication detected. No severe interactions found.");
+}
+function scanMedicine(){
+show("Urgent Review","bg-red-500/20 text-red-400",
+"Dosage mismatch detected. Verify before use.");
+}
+function show(level,cls,text){
+output.classList.remove('hidden');
+riskBadge.className=`px-4 py-2 rounded-full font-bold ${cls}`;
+riskBadge.innerText=level;
+explanation.innerText=text;
+chatLog.innerHTML="";
+}
+function playVoice(){
+speechSynthesis.speak(new SpeechSynthesisUtterance(explanation.innerText));
+}
+function sendChat(){
+const q=chatInput.value.trim();
+if(!q)return;
+chatLog.innerHTML+=`<div class="mb-2 text-blue-400">You: ${q}</div>`;
+chatLog.innerHTML+=`<div class="mb-2 text-slate-300">JIVAI: Please follow your doctor’s instructions and consult a professional for confirmation.</div>`;
+chatInput.value="";
+chatLog.scrollTop=chatLog.scrollHeight;
+}
 </script>
 
 </body>
